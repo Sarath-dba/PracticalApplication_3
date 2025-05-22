@@ -3,8 +3,11 @@
 ## 🗃️ Folders & Files
 
 🔗 Github Reposiroty: https://github.com/Sarath-dba/Capstone
+
 🔗 data: https://github.com/Sarath-dba/Capstone/tree/main/data
-🔗 README.md: https://github.com/Sarath-dba/Capstone/blob/main/README.md
+
+🔗 README.md: https://github.com/Sarath-dba/PracticalApplication_3/blob/main/README.md
+
 🔗 Student_Performance_Prediction_Analysis.ipynb: 
 
 #### Overview: In this practical application, your goal is to compare the performance of the classifiers we encountered in this section, namely K Nearest Neighbor, Logistic Regression, Decision Trees, and Support Vector Machines. We will utilize a dataset related to marketing bank products over the telephone.
@@ -102,8 +105,22 @@ Create simple Logistic Regression model with all default parameters and record t
 
 Compare Logistic Regression Model with KNeighbors, SVM & Decision Tree models and record the accuracy score on training and test datasets
 
-Observation: The best Model is LogisticRegression with better traing and test accuracy scores.
-SVM model is taking too much time for fitting and predictions. So, this may not be right choice for this classification problem unless we have more compute resources.
+Observation: The best Model is SVC with below training.
+Training Model:SVM - SVC()
+Parameters:{'kernel': ['linear', 'rbf'], 'C': [0.1, 1, 10]}
+Best Parameters for SVM: {'C': 10, 'kernel': 'rbf'}
+
+SVC model is taking too much time for fitting and predictions. So, this may not be right choice for larger datasets
+
+#### Tuning the model
+We noticed sigmoid and rbf kernels are taking long time for model training. So, we used SVC with linear Kernel and tuned penalty and Learning rate parameters.
+We resolved the model traning time with this approach but came with trade off on slight decrease in score and test accuracy comapred to rbf kernel.
+
+#### Conclusion
+#### KNN has best Training Accuracy & Score. Rest of the model have very close Training acuracy and scores.
+#### LinearSVC has the best Test accuracy score with lower training time.
+### LinearSVC will be good fit for this dataset
+
 
 
 
