@@ -91,31 +91,53 @@ Lets consider euribor3m, which is the interest rate provided by the bank on the 
 #### Feature Engineering
 
 age             int64  - Numeric, needs scaling
+
 job             object - Categorical, One Hot encoding
+
 marital         object - Categorical, One Hot encoding
+
 education       object - Categorical, One Hot encoding
+
 default         object - Categorical, One Hot encoding
+
 housing         object - Categorical, One Hot encoding
+
 loan            object - Categorical, One Hot encoding
+
 contact         object - Categorical, Binary encoding
+
 month           object - Categorical, One Hot encoding
+
 day_of_week     object - Categorical, One Hot encoding 
-duration        int64  - Suggested that this metric does not make sense until the customer is connected over call which can lead to wrong predictions. So, drop the column.                         
+
+duration        int64  - Suggested that this metric does not make sense until the customer is connected over call which can lead to wrong predictions. So, drop the column.  
+
 campaign        int64  - Numeric, needs scaling
+
 pdays           int64  - Numeric, needs scaling
+
 previous        int64  - Numeric, needs scaling
+
 poutcome        object - Categorical, One Hot encoding
+
 emp.var.rate    float64 - Drop the column as its 97% correlated with euribor3m
+
 cons.price.idx  float64 - Numeric, needs scaling
+
 cons.conf.idx   float64 - Numeric, needs scaling
+
 euribor3m       float64 - Numeric, needs scaling
+
 nr.employed     float64 - Drop the column as its 97% correlated with euribor3m
+
 y               int64 -   Numeric Target Variable - Map 0 as No and 1 as Yes
 
 #### Split the data for Model Training and testing
 
 All categorical columns are encoded with OHE and numerical columns are scaled with StandardScaler
-Create traing and test data splits with 80% training and 20% test sets. 
+
+Create traing and test data splits with 80% training and 20% test sets.
+
 Because the positive outcome of target variable is only 11.8%, We will use SMOTE to add more data to training dataset and use that enlarged dataset to train the models.
 
 #### Baseline Model
@@ -131,14 +153,19 @@ Create simple Logistic Regression model with all default parameters and record t
 Compare Logistic Regression Model with KNeighbors, SVM & Decision Tree models and record the accuracy score on training and test datasets
 
 Observation: The best Model is SVC with below training.
+
 Training Model:SVM - SVC()
+
 Parameters:{'kernel': ['linear', 'rbf'], 'C': [0.1, 1, 10]}
+
 Best Parameters for SVM: {'C': 10, 'kernel': 'rbf'}
 
 SVC model is taking too much time for fitting and predictions. So, this may not be right choice for larger datasets
 
 #### Tuning the model
+
 We noticed sigmoid and rbf kernels are taking long time for model training. So, we used SVC with linear Kernel and tuned penalty and Learning rate parameters.
+
 We resolved the model traning time with this approach but came with trade off on slight decrease in score and test accuracy comapred to rbf kernel.
 
 #### Conclusion
