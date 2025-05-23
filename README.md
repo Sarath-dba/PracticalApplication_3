@@ -17,7 +17,7 @@ Our dataset comes from the UCI Machine Learning repository. The data is from a P
 
 ###### The exercise follows structured approach to achieve the desired result.
 
-#### Data Understanding
+#### 📊 Data Understanding
 
 The data represents when human agents make phone calls to a list of clients to sell the deposit. Thus, the result is a binary unsuccessful or successful contact.
 We have different categories that build the customer profile that can help the model predicting the result.
@@ -78,7 +78,7 @@ Output variable (desired target):
 
 From basic understanding, We need to examine what type of customers have purchased marketed products so that the predictions can be used for targeted marketing.
 
-#### Data Preparation and Cleaning
+#### 🧹 Data Preparation and Cleaning
 
 We do not have any missing data but the data is highly imbalanced. So, we will utilize SMOTE to reduce the imbalance effect in training the model.
 
@@ -132,7 +132,7 @@ nr.employed     float64 - Drop the column as its 97% correlated with euribor3m
 
 y               int64 -   Numeric Target Variable - Map 0 as No and 1 as Yes
 
-#### Split the data for Model Training and testing
+#### ✂️ Split the data for Model Training and testing
 
 All categorical columns are encoded with OHE and numerical columns are scaled with StandardScaler
 
@@ -140,15 +140,15 @@ Create traing and test data splits with 80% training and 20% test sets.
 
 Because the positive outcome of target variable is only 11.8%, We will use SMOTE to add more data to training dataset and use that enlarged dataset to train the models.
 
-#### Baseline Model
+#### 📝 Baseline Model
 
 Create simple baseline model which is DecisionTree with all default parameters and record the evaluation metrics
 
-#### Simple Logistic Regression Model
+#### 📏 Simple Logistic Regression Model
 
 Create simple Logistic Regression model with all default parameters and record the evaluation metrics
 
-#### Compare with other models
+#### 🔍 Compare with other models
 
 Compare Logistic Regression Model with KNeighbors, SVM & Decision Tree models and record the accuracy score on training and test datasets
 
@@ -162,13 +162,13 @@ Best Parameters for SVM: {'C': 10, 'kernel': 'rbf'}
 
 SVC model is taking too much time for fitting and predictions. So, this may not be right choice for larger datasets
 
-#### Tuning the model
+#### 🎯 Tuning the model
 
 We noticed sigmoid and rbf kernels are taking long time for model training. So, we used SVC with linear Kernel and tuned penalty and Learning rate parameters.
 
 We resolved the model traning time with this approach but came with trade off on slight decrease in score and test accuracy comapred to rbf kernel.
 
-#### Conclusion
+#### 🏆 Conclusion
 #### KNN has best Training Accuracy & Score. Rest of the model have very close Training acuracy and scores.
 #### LinearSVC has the best Test accuracy score with lower training time.
 ### LinearSVC will be good fit for this dataset
